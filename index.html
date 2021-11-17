@@ -12,15 +12,30 @@
 <body>
     <div id="head">
         <h1>CSE 4A3</h1>
-        <p id="date">Mon 12,2021</p>
+        <p id="date"></p>
     </div>
     <div id="info">
-        <p>Current Lecture</p>
-        <div>
-            <h1 id="facinfo"></h1>
-            <p id="subinfo"></p>
+        <div class="card">
+            <div class="front">
+                <p>Current Lecture</p>
+                <div>
+                    <h1 id="facinfo"></h1>
+                    <p id="subinfo"></p>
+                </div>
+                <button class="rotate">Next Lecture</button>
+            </div>
+            <div class="back">
+                <p>Next Lecture</p>
+                <div>
+                    <h1 id="nextfacinfo"></h1>
+                    <p id="nextsubinfo"></p>
+                </div>
+                <button class="rotate">Current Lecture</button>
+            </div>
         </div>
-        <button>Next Lecture</button>
+    </div>
+    <div id="footer">
+        <p>Developed by <span>alpha2207</span> aka <span>Ayan Ali</span></p>
     </div>
     <script src="app.js"></script>
 </body>

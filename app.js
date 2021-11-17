@@ -1,9 +1,19 @@
+// All variables
 let facinfo=document.getElementById("facinfo");
 let subinfo=document.getElementById("subinfo");
+let datediv=document.getElementById("date");
+let nextfacinfo=document.getElementById("nextfacinfo");
+let nextsubinfo=document.getElementById("nextsubinfo");
+let rotatebtn=document.getElementsByClassName("rotate")[0];
+let rotatebtn2=document.getElementsByClassName("rotate")[1];
+let card=document.querySelector(".card");
 let date= new Date();
 let hours=date.getHours();
+let lecinfo;
 let minutes=date.getMinutes();
 let index=Index(hours);
+let teacherinfo="";
+// Getting today name
 const weekday = new Array(7);
 weekday[0] = "Sunday";
 weekday[1] = "Monday";
@@ -13,6 +23,8 @@ weekday[4] = "Thursday";
 weekday[5] = "Friday";
 weekday[6] = "Saturday";
 let day = weekday[date.getDay()];
+
+// Everyday tt of both batches
 let Monday1=["Weekly/OOCUML","CN","Lunch","OS","OS","PCS:2","PCS:2"];
 let Monday2=["Weekly/OOCUML","CN","Lunch","OOOCUML","OOCUML","PCS:2","PCS:2"];
 let Tuesday1=["OOCUML","OOCUML","Lunch","COMA","PSNM","LIB","CN"];
@@ -26,6 +38,7 @@ let Friday2=["COMA","PSNM","Lunch","CN","LIB","CN","CN"];
 let Saturday1=["OOCUML","PSNM","Lunch","OS","LIB/OOCUML","COMA","COMA"];
 let Saturday2=["OOCUML","PSNM","Lunch","OS","LIB/OOCUML","PSNM","PSNM"];
 
+// Faculties object having faculty name as key and subject name as value
 var Faculties={
     "MONIKA NAYK":"OS",
     "KEYA PATEL":"OOCUML",
@@ -36,15 +49,62 @@ var Faculties={
     "-":"PCS:2",
     "Break Time":"Lunch"
 }
+// getting day value and converting to array corresponding to that day name
 let value=(day+"1");
-value=eval(value);
-var lecinfo;
-if(index===-1||index>6){
-    lecinfo="No Lecture 🥳";
-} else{
-    lecinfo=value[index];
+value=eval(value);//Convert string to variable name's
+
+// Finding and putting current lecture info
+findinfo(index);
+facinfo.innerText=teacherinfo;
+subinfo.innerText=lecinfo;
+
+// Formation of date string that has to display on nav
+day=day.slice(0,3);
+datetodisplay=`${day} ${date.getDate()},${date.getFullYear()}`
+datediv.innerText=datetodisplay;
+
+// information of next lecture(Fetching and putting in div)
+index++;
+findinfo(index);
+nextfacinfo.innerText=teacherinfo;
+nextsubinfo.innerText=lecinfo;
+
+// Adding event listener to both of button
+rotatebtn.addEventListener('click',()=>{
+    card.classList.add('rotateddiv');
+})
+rotatebtn2.addEventListener('click',()=>{
+    card.classList.remove('rotateddiv');
+})
+
+
+// functions used in program
+
+// Clever algorithm to find index based on time
+function Index(hours){
+        if(hours>=9 && hours<12){
+            return (minutes>30)?(hours-9):(hours-10);
+        }
+        else if(hours>=12 && hours<17){
+            return (minutes>15)?(hours-9):(hours-10);
+        }
+        else{
+            return -1;
+        }
+    }
+
+// assigning value to lecinfo and teacherinfo based on index
+function findinfo(index){
+    if(index<1||index>6){
+        lecinfo="No Lecture 🥳";
+        teacherinfo="Enjoy!"
+    } else{
+        lecinfo=value[index];
+        teacherinfo = getKeyByValue(Faculties,lecinfo );
+    }
 }
 
+// Getting key by value to get teacher name by subject in Faculties object
 function getKeyByValue(object, value) {
     for (var prop in object) {
         if (object.hasOwnProperty(prop)) {
@@ -53,20 +113,3 @@ function getKeyByValue(object, value) {
         }
     }
 }
-let teacherinfo = getKeyByValue(Faculties,lecinfo );
-
-
-function Index(hours){
-    if(hours>=9 && hours<12){
-        return (minutes>30)?(hours-9):(hours-10);
-    }
-    else if(hours>=12 && hours<17){
-        return (minutes>15)?(hours-9):(hours-10);
-    }
-    else{
-        return -1;
-    }
-}
-day=day.slice(0,3);
-facinfo.innerText=teacherinfo;
-subinfo.innerText=lecinfo;
