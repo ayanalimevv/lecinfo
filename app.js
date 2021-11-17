@@ -1,6 +1,7 @@
+let facinfo=document.getElementById("facinfo");
+let subinfo=document.getElementById("subinfo");
 let date= new Date();
-// let hours=date.getHours();
-let hours=11;
+let hours=date.getHours();
 let minutes=date.getMinutes();
 let index=Index(hours);
 const weekday = new Array(7);
@@ -66,3 +67,6 @@ function Index(hours){
         return -1;
     }
 }
+day=day.slice(0,3);
+facinfo.innerText=teacherinfo;
+subinfo.innerText=lecinfo;
