@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@100;300;400;500&family=Roboto:wght@100;300;400&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Poppins';
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  padding: 1rem;
+}
+
+#head h1 {
+  color: #4869df;
+}
+
+#head #date {
+  margin-left: auto;
+  font-weight: 500;
+  color: black;
+}
+
+#info {
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 3fr 1fr;
+      grid-template-rows: 1fr 3fr 1fr;
+  grid-gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: center;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 80%;
+  height: 50%;
+  -webkit-box-shadow: 16px 16px 32px #cacaca, -9px -9px 32px #ffffff;
+          box-shadow: 16px 16px 32px #cacaca, -9px -9px 32px #ffffff;
+}
+
+#info #facinfo {
+  color: black;
+  margin: 0.5rem;
+}
+
+#info #subinfo {
+  color: rgba(72, 105, 223, 0.9);
+  font-weight: 500;
+}
+
+#info button {
+  color: #fff;
+  background-color: #4869df;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  -webkit-box-shadow: 0px 4px 12px -2px #474747;
+          box-shadow: 0px 4px 12px -2px #474747;
+}
+/*# sourceMappingURL=style.css.map */
