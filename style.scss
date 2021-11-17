@@ -105,7 +105,8 @@ body {
   margin: 1rem 0;
   p {
     color: rgba($color: #000000, $alpha: 0.5);
-    span {
+    span a,span{
+      text-decoration: none;
       color: #4869df;
     }
   }

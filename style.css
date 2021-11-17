@@ -173,7 +173,8 @@ body {
   color: rgba(0, 0, 0, 0.5);
 }
 
-#footer p span {
+#footer p span a, #footer p span {
+  text-decoration: none;
   color: #4869df;
 }
 /*# sourceMappingURL=style.css.map */
