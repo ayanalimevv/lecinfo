@@ -37,6 +37,7 @@ let Friday1=["COMA","PSNM","Lunch","CN","LIB","JPW","JPW"];
 let Friday2=["COMA","PSNM","Lunch","CN","LIB","CN","CN"];
 let Saturday1=["OOCUML","PSNM","Lunch","OS","LIB/OOCUML","COMA","COMA"];
 let Saturday2=["OOCUML","PSNM","Lunch","OS","LIB/OOCUML","PSNM","PSNM"];
+let Sunday1=["Holiday","Holiday","Holiday","Holiday","Holiday","Holiday","Holiday"];
 
 // Faculties object having faculty name as key and subject name as value
 var Faculties={
@@ -47,7 +48,9 @@ var Faculties={
     "ALKA VIRDA" : "COMA",
     "DHARNA PATEL" : "PSNM",
     "-":"PCS:2",
-    "Break Time":"Lunch"
+    "Break Time":"Lunch",
+    "LIBRARY":"LIB",
+    "Have a great weekend":"Holiday"
 }
 // getting day value and converting to array corresponding to that day name
 let value=(day+"1");
@@ -112,4 +115,9 @@ function getKeyByValue(object, value) {
             return prop;
         }
     }
+}
+let list=document.getElementById("list");
+for (let index = 0; index < value.length; index++) {
+    let subject = value[index];
+    let faculty=getKeyByValue(Faculties,subject);
 }
