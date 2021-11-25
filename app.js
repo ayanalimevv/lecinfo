@@ -25,8 +25,8 @@ weekday[6] = "Saturday";
 let day = weekday[date.getDay()];
 
 // Everyday tt of both batches
-let Monday1=["Weekly/OOCUML","CN","Lunch","OS","OS","PCS:2","PCS:2"];
-let Monday2=["Weekly/OOCUML","CN","Lunch","OOOCUML","OOCUML","PCS:2","PCS:2"];
+let Monday1=["OOCUML","CN","Lunch","OS","OS","PCS:2","PCS:2"];
+let Monday2=["OOCUML","CN","Lunch","OOOCUML","OOCUML","PCS:2","PCS:2"];
 let Tuesday1=["OOCUML","OOCUML","Lunch","COMA","PSNM","LIB","CN"];
 let Tuesday2=["OS","OS","Lunch","COMA","PSNM","LIB","CN"];
 let Wednesday1=["PCS:2","OOCUML","Lunch","OS","COMA","CN","CN"];
@@ -86,10 +86,10 @@ rotatebtn2.addEventListener('click',()=>{
 // Clever algorithm to find index based on time
 function Index(hours){
         if(hours>=9 && hours<12){
-            return (minutes>30)?(hours-9):(hours-10);
+            return (minutes>=30)?(hours-9):(hours-10);
         }
         else if(hours>=12 && hours<17){
-            return (minutes>15)?(hours-9):(hours-10);
+            return (minutes>=15)?(hours-9):(hours-10);
         }
         else{
             return -1;
@@ -98,7 +98,7 @@ function Index(hours){
 
 // assigning value to lecinfo and teacherinfo based on index
 function findinfo(index){
-    if(index<1||index>6){
+    if(index<0||index>6){
         lecinfo="No Lecture 🥳";
         teacherinfo="Enjoy!"
     } else{
@@ -117,7 +117,3 @@ function getKeyByValue(object, value) {
     }
 }
 let list=document.getElementById("list");
-for (let index = 0; index < value.length; index++) {
-    let subject = value[index];
-    let faculty=getKeyByValue(Faculties,subject);
-}
